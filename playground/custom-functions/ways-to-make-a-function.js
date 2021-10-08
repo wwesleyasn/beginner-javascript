@@ -1,4 +1,4 @@
-console.log(`It Works`);
+console.log(`Console Is Running`);
 
 // Anonymous function
 // function (firstName) {
@@ -40,4 +40,56 @@ const inchToCM = (inches) => inches * 2.54;
 //   return total;
 // }
 
-const add = (a, b = 3) => a + b;
+//const add = (a, b = 3) => a + b;
+
+//returning an object
+
+// function makeABaby(first, last) {
+//   const baby = {
+//     name: `${first} ${last}`,
+//     age: 0
+//   }
+//   return baby;
+// }
+
+// const makeABaby =  (first, last) => ({ name: `${first} ${last}`, age: 0 });
+
+//IIFE
+//Immediately Invoked Function Expression
+
+(function(age) {
+  return `You Are Cool and age ${age}`;
+})(10);
+
+//Methods
+
+const wes = {
+  name: `Wes Bos`,
+  sayHi: function() {
+    console.log(`Hey Wes`);
+    return `Hey Wes`;
+  },
+  //Short hand Version
+  yellHi() {
+    console.log(`HEY WES`);
+  },
+  //Arrow version
+  whisperHi: () => {console.log(`hey wes`)}
+}
+
+//Callback Functions
+//Click Callback
+
+const button = document.querySelector(`.clickMe`);
+
+// button.addEventListener(`click`, wes.yellHi);
+button.addEventListener(`click`, function() {
+  console.log(`Button Is Working`);
+})
+
+//Timer Callback
+setTimeout(function () {
+  console.log(`Time Has Expired`);
+}, 1000);
+
+setTimeout(() => {console.log(`Time Is Ticking`)}, 2000);
