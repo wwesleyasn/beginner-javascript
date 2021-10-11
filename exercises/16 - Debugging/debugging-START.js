@@ -5,6 +5,7 @@ const people = [
 ];
 
 people.forEach((person, index) => {
+  debugger;
   console.log(person.name);
 });
 
@@ -24,35 +25,35 @@ people.forEach((person, index) => {
 
 // Some Setup Code
 
-function doctorize(name) {
-  return `Dr. ${name}`;
-}
+// function doctorize(name) {
+//   return `Dr. ${name}`;
+// }
 
-function greet(name) {
-  doesntExist();
-  return `Hello ${name}`;
-}
+// function greet(name) {
+//   doesntExist();
+//   return `Hello ${name}`;
+// }
 
-function go() {
-  const name = doctorize(greet('Wes'));
-  console.log(name);
-}
+// function go() {
+//   const name = doctorize(greet('Wes'));
+//   console.log(name);
+// }
 
-const button = document.querySelector('.bigger');
-button.addEventListener('click', function(e) {
-  const newFontSize =
-    parseFloat(getComputedStyle(e.currentTarget).fontSize) + 1;
-  e.currentTarget.style.fontSize = `${newFontSize}px`;
-});
+// const button = document.querySelector('.bigger');
+// button.addEventListener('click', function(e) {
+//   const newFontSize =
+//     parseFloat(getComputedStyle(e.currentTarget).fontSize) + 1;
+//   e.currentTarget.style.fontSize = `${newFontSize}px`;
+// });
 
 // A Dad joke fetch
-async function fetchDadJoke() {
-  const res = await fetch('https://icanhazdadjoke.com/', {
-    headers: {
-      Accept: 'text/plain',
-    },
-  });
-  const joke = await res.text();
-  console.log(joke);
-  return joke;
-}
+// async function fetchDadJoke() {
+//   const res = await fetch('https://icanhazdadjoke.com/', {
+//     headers: {
+//       Accept: 'text/plain',
+//     },
+//   });
+//   const joke = await res.text();
+//   console.log(joke);
+//   return joke;
+// }

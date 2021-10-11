@@ -5,11 +5,7 @@ const people = [
 ];
 
 people.forEach((person, index) => {
-  // console.groupCollapsed(`${person.name}`);
-  // console.log(person.country);
-  // console.log(person.cool);
-  // console.log(`DONE`);
-  // console.groupEnd(`${person.name}`);
+  console.log(person.name);
 });
 
 // Console Methods
