@@ -9,10 +9,80 @@
 </head>
 
 <body>
+
+  <!--<h2>Truthy Values</h2>
+  * 1
+  * -10
+  * Full string
+  * String of 0
+  * String with a space
+  * Empty array []
+  * Empty object {}
+
+  <h2>Falsy Values</h2>
+  * 0
+  * Undefined (Variable)
+  * Null (Variable)
+  * NaN
+  * Empty String -->
+
   <script>
-    if (10 > 2) {
-      console.log('Yep');
+    // const age = 100;
+    // if (age > 70) {
+    //   console.log(`In your 70's`);
+    // } else if (age > 60) {
+    //   console.log(`In your 60's`);
+    // } else if (age > 50) {
+    //   console.log(`In your 50's`);
+    // } else {
+    //   console.log(`Nothing was true`);
+    // }
+
+    // function slugify(sentance, lowercase) {
+    //   const slug = sentance.replace(/\s/g, `-`);
+    //   if (lowercase) {
+    //     return slug.toLowercase();
+    //   }
+    //   // else
+    //   return slug;
+    // }
+
+    // const name = `Wes`;
+    // const last = `Bos`;
+
+    // if (name === `Wes` && last === `Bos`) {
+    //   console.log(`Cool Name`);
+    // } else {
+    //   console.log(`Not A Cool Name`);
+    // }
+
+    // const dog = ``;
+
+    // if (dog) {
+    //   console.log(`You Have A Dog`);
+    // } else {
+    //   console.log(`You Don't Have A Dog`);
+    // }
+
+    const isCool = true;
+    if (!isCool) {
+      console.log(`You Are Not Cool`);
     }
+
+    // Ternary
+    const count = 350;
+    // let word;
+    // if (count === 1) {
+    //   word = `item`;
+    // } else {
+    //   word = `items`;
+    // }
+
+    //
+    const word = count === 1 ? `item` : `items`;
+
+    const sentance = `You have ${count} ${word} in your cart`;
+    console.log(sentance);
   </script>
 </body>
 
