@@ -11,6 +11,44 @@
 
 <body>
 
+  <style>
+    .Turt {
+      position: relative;
+      transform: translateX(50px) translateY(50px);
+    }
+  </style>
+  <img width="200px" src="turtle.png" alt="Turt" class="Turt">
+
+  <script>
+    const turtle = document.querySelector(`.Turt`);
+    let x = 0;
+    let y = 0;
+    function handleKeyDown(event) {
+      if (!event.key.includes(`Arrow`)) {
+        return;
+      }
+      switch (event.key) {
+        case `ArrowUp`:
+          y -= 1;
+          break;
+        case `ArrowDown`:
+          y += 1;
+          break;
+        case `ArrowLeft`:
+          x -= 1;
+          break;
+        case `ArrowRight`:
+          x += 1;
+          break;
+        default:
+          console.log(`That Is Not A Valid Move`);
+          break;
+      }
+
+      console.log(x, y);
+    }
+    window.addEventListener(`keydown`, handleKeyDown);
+  </script>
 </body>
 
 </html>
