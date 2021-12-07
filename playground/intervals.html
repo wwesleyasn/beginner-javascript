@@ -9,7 +9,46 @@
 </head>
 
 <body>
+  <script>
+    // // // This version with declared function
+    // function buzzer() {
+    //   console.log(`BRRRRRRRRR`);
+    // }
 
+    // // setTimeout(buzzer, 500);
+
+    // // // This version with anonymous function
+    // // setTimeout(() => {
+    // //   console.log(`Done!`);
+    // // }, 500);
+
+    // // Setting an Interval
+    // // setInterval(buzzer, 500);
+
+    // // Setting an Immediate Interval
+    // function setImmediateInterval(funcToRun, ms) {
+    //   // Right away call that function
+    //   funcToRun();
+    //   // Run a regular interval
+    //   return setInterval(funcToRun, ms);
+    // }
+
+    // setImmediateInterval(buzzer, 2000);
+
+    // Clear an interval or timer
+    function destroy() {
+      document.body.innerHTML = `<p>DESTROYED</p>`;
+    }
+
+    const bombTimer = setTimeout(destroy, 5000);
+
+    window.addEventListener(`click`, () => {
+      console.log(`You Clicked! You Saved The World`);
+
+      // How do you stop the Timer or Interval
+      clearTimeout(bombTimer);
+    });
+  </script>
 </body>
 
 </html>
