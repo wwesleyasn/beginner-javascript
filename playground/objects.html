@@ -9,12 +9,103 @@
 </head>
 
 <body>
+  <!-- <input tpye="text" name="first" value="Will"> -->
+  <script src="https://unpkg.com/lodash"></script>
   <script>
     const age = 100;
     const person = {
       age,
       name: `Will`,
+      'cool-dude': true,
+      'really cool': false,
+      777: true,
+      dog: 'Snicker',
+      clothing: {
+        shirts: 10,
+        pants: 2,
+      },
+      sayHello(greeting = `Hey`) {
+        return `${greeting} ${this.name}`;
+      },
     };
+
+    person.job = `Web Developer`;
+    person.age = 25;
+
+    // // console.log(person.age);
+    // const propertyToCheck = prompt(`What did you want to check?`);
+    // console.log(propertyToCheck);
+    // console.log(person[propertyToCheck]);
+
+    const nameInput = document.querySelector('[name="first"]');
+    const name = nameInput ? nameInput.value : '';
+    console.log(name);
+
+    // console.log(delete person.job);
+
+    let name1 = `Wes`;
+    let name2 = `Wes`;
+
+    console.log(name1 === name2);
+    name1 = `Scott`;
+    console.log(name1 === name2);
+    // Update name1 to be what is name2
+    name1 = name2;
+    console.log(name1 === name2);
+    name2 = name1;
+    name2 = `Westopher`;
+
+    const person1 = {
+      first: `Wes`,
+      last: `Bos`,
+      clothing: {
+        shirts: 10,
+        pants: 2,
+      },
+    };
+
+    const person2 = {
+      first: `Wes`,
+      last: `Bos`,
+    };
+
+    // const person3 = person1;
+    // person3.first = `Larry`;
+    // console.log(person3.first);
+    // console.log(person1.first);
+    // const person3 = { ...person1 };
+    // const person3 = object.assign({}, person1);
+    const person3 = _.cloneDeep(person1);
+    person3.first = `Larry`;
+    person3.clothing.shirts = 100;
+
+    const meatInventory = {
+      bacon: 2,
+      sausage: 3,
+      oysters: 10,
+    };
+
+    const veggieInventory = {
+      lettuce: 5,
+      tomatoes: 3,
+      oysters: 15,
+    };
+
+    const inventory = { ...meatInventory, ...veggieInventory };
+    // console.log(inventory);
+
+    function doStuff(data) {
+      data = 'Something Else';
+      console.log(data);
+    }
+
+    function doStuff2(data) {
+      data.tomatoes = 100000000000000;
+      console.log(data);
+    }
+
+    doStuff(name1);
+    doStuff2(inventory);
   </script>
 </body>
 
