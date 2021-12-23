@@ -11,7 +11,79 @@
 </head>
 
 <body>
+  <script>
+    const names = [`Wes`, `Kait`, `Snickers`];
 
+    console.log(names[0]);
+    console.log(names.length);
+    console.log(names[names.length - 1]);
+
+    // names.push(`Lux`);
+    console.log(names);
+    const names2 = [...names, `lux`];
+    console.log(names2);
+
+    const names3 = [`Poppy`, ...names2];
+    console.log(names3);
+
+    const bikes = [`Bianchi`, `Miele`, `Panasonic`, `Miyata`];
+
+    const newBikes = [...bikes.slice(0, 2), `Benotto`, ...bikes.slice(2)];
+    console.log(newBikes);
+
+    const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+    console.log(newBikes2);
+
+    const comments = [
+      { text: `Cool Beans`, id: 123 },
+      { text: `Love This`, id: 133 },
+      { text: `Neato`, id: 143 },
+      { text: `Good Bikes`, id: 153 },
+      { text: `So Good`, id: 163 },
+    ];
+
+    console.log(comments);
+
+    function deleteComment(id, comments) {
+      // find the index of the item in the array
+      const commentIndex = comments.findIndex((comment) => comment.id === id);
+      // make a new array without that item in it
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+      // return our new array
+    }
+
+    // Finding index of item within an Array
+    const kaitIndex = names3.findIndex((name) => name === `Kait`);
+    const newNamesWithoutKait = [
+      // Get everything up to Kait index
+      ...names3.slice(0, kaitIndex),
+      // Everything after Kait
+      ...names3.slice(kaitIndex + 1),
+    ];
+    console.log(newNamesWithoutKait);
+
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // console.log(numbers);
+    // numbers.splice(3, 2);
+    // console.log(numbers);
+
+    // // Mutation Method
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // // // numbers.reverse();
+    // console.log(numbers);
+
+    // // Immutable Method
+    // // const pizzaSlice = numbers.slice(2, 4);
+    // // console.log(pizzaSlice);
+
+    // // Using a Mutation Method without Mutating
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+  </script>
 </body>
 
 </html>
