@@ -79,11 +79,11 @@
     console.log(Object.keys(meats));
     console.log(Object.values(meats));
 
-    Object.entries(meats).forEach((entry) => {
+    Object.entries(meats).forEach(([key, value]) => {
       // const key = entry[0];
       // const value = entry[1];
       // This is doing the same thing as the code above, this is called destructuring
-      const [key, value] = entry;
+      // const [key, value] = entry;
       console.log(key, value);
     });
 
@@ -93,21 +93,93 @@
 
     // Display all bun types with " or " - use join()
 
+    // console.log(buns.join(` or `));
+
     // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
 
+    // const newString = `Hot Dogs, Hamburgers, Sausages, Corn`;
+    // console.log(newString.split(`,`));
+
     // take the last item off toppings with pop()
+
+    // const lastItem = toppings.pop();
+    // console.log(lastItem);
+
     // add it back with push()
+
+    // toppings.push(lastItem);
+    // console.log(toppings);
+
     // take the first item off toppings with shift()
+
+    // const firstItem = toppings.shift();
+    // console.log(firstItem);
+
     // add it back in with unshift()
+
+    // toppings.unshift(firstItem);
+    // console.log(toppings);
+
     // Do the last four,but immutable (with spreads and new variables)
 
+    let newToppings = toppings.slice(0, toppings.length - 1);
+    console.log(newToppings);
+
+    newToppings = [...newToppings, toppings[toppings.length - 1]];
+    console.log(newToppings);
+
+    let newToppings2 = newToppings.slice(1);
+    console.log(newToppings2);
+
+    newToppings2 = [newToppings[0], ...newToppings2];
+    console.log(newToppings2);
+
     // Make a copy of the toppings array with slice()
+
+    const newToppingsArray = toppings.slice(0);
+    console.log(newToppingsArray);
+
     // Make a copy of the toppings array with a spread
+
+    const newToppingsArraySpread = [...toppings];
+    console.log(newToppingsArraySpread);
+
     // take out items 3 to 5 of your new toppings array with splice()
+
+    newToppingsArray.splice(2, 3);
+    console.log(newToppingsArray);
+
     // find the index of Avocado with indexOf() / lastIndexOf()
+
+    // Shorter way to do it
+    // const avoIndex = toppings.indexOf(`Avocado`);
+    // console.log(avoIndex);
+    console.log(newToppingsArray.indexOf(`Avocado`));
+    console.log(newToppingsArray.lastIndexOf(`Avocado`));
+
     // Check if hot sauce is in the toppings with includes()
+
+    // Shorter way to do it
+    // const isInToppings = newToppingsArray.includes(`Hot Sauce`);
+    // console.log(isInToppings);
+    console.log(newToppingsArray.includes(`Hot Sauce`));
+
     // add it if it's not
+
+    // Shorter way to do it
+    // if (!isInToppings) {
+    //   newToppingsArray.push(`Hot Sauce`);
+    // }
+    newToppingsArray.push(`Hot Sauce`);
+    console.log(newToppingsArray);
+
     // flip those toppings around with reverse()
+
+    newToppingsArray.reverse();
+    console.log(newToppingsArray);
+
+    const newToppingsArrayReversed = [...newToppingsArray].reverse();
+    console.log(newToppingsArrayReversed);
 
     /*
       Callback Methods
