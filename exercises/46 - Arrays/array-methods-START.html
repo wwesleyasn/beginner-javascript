@@ -186,13 +186,70 @@
     */
 
     // find the first rating that talks about a burger with find()
+
+    // function findBurgRating(singleFeedback) {
+    //   return singleFeedback.comment.includes(`burg`);
+    // }
+
+    function findByWord(word) {
+      return function (singleFeedback) {
+        return singleFeedback.comment.includes(word);
+      };
+    }
+
+    const burgRating = feedback.find(findByWord(`burg`));
+    const smoothieRating = feedback.find(findByWord(`Smoothie`));
+
+    console.log(burgRating);
+    console.log(smoothieRating);
+
     // find all ratings that are above 2 with filter()
+
+    function filterByMinRating(minRating) {
+      return function (singleFeedback) {
+        return singleFeedback.rating > minRating;
+      };
+    }
+    const goodReviews = feedback.filter(filterByMinRating(2));
+    console.table(goodReviews);
+
     // find all ratings that talk about a burger with filter()
-    // Remove the one star rating however you like!
+
+    const burgRatings = feedback.filter(findByWord(`burg`));
+    console.table(burgRatings);
+
+    // Hide the one star rating however you like
+
+    const goodRatingsOnly = feedback.filter(
+      (singleFeedback) => singleFeedback.rating !== 1
+    );
+    console.table(goodRatingsOnly);
 
     // check if there is at least 5 of one type of meat with some()
+
+    const isThereEnoughOfAtLeastOneMeat = Object.values(meats).some(
+      (meatValue) => meatValue >= 5
+    );
+    console.log(isThereEnoughOfAtLeastOneMeat);
+
     // make sure we have at least 3 of every meat with every()
+
+    const isThereEnoughOfEveryMeat = Object.values(meats).some(
+      (everyMeatValue) => everyMeatValue >= 3
+    );
+    console.log(isThereEnoughOfEveryMeat);
+
     // sort the toppings alphabetically with sort()
+
+    // This example is if the array was a series of numbers
+    // const alphaBetToppings = [...toppings];
+    // const alphaBetToppingsSorted = alphaBetToppings.sort(
+    //   (firstItem, secondItem) => firstItem - secondItem
+    // );
+    // console.log(alphaBetToppingsSorted);
+
+    console.log(toppings.sort());
+
     // sort the order totals from most expensive to least with .sort()
     // Sort the prices with sort()
 
