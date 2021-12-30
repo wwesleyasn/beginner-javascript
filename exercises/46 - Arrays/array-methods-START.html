@@ -251,7 +251,20 @@
     console.log(toppings.sort());
 
     // sort the order totals from most expensive to least with .sort()
+
+    function numberSort(a, b) {
+      return a - b;
+    }
+    console.log(orderTotals.sort(numberSort));
+
     // Sort the prices with sort()
+
+    const productsSortedByPrice = Object.entries(prices).sort((a, b) => {
+      const aPrice = a[1];
+      const bPrice = b[1];
+      return aPrice - bPrice;
+    });
+    console.table(productsSortedByPrice);
 
     /*
       Looping Methods (next)
