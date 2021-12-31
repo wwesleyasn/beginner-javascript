@@ -1,0 +1,32 @@
+<script>
+  const newCars = [
+    {
+      model: `Civic`,
+      trim: `Sport`,
+      drive: `FWD`,
+      transmission: `CVT`,
+    },
+
+    {
+      model: `Civic`,
+      trim: `Sport`,
+      drive: `FWD`,
+      transmission: `Manual`,
+    },
+
+    {
+      model: `CR-V`,
+      trim: `Sport`,
+      drive: `AWD`,
+      transmission: `Manual`,
+    },
+  ];
+
+  console.table(newCars);
+
+  const isManual = newCars.filter((car) => car.transmission === `Manual`);
+  console.table(isManual);
+
+  const isFWD = newCars.filter((car) => car.drive === `FWD`);
+  console.table(isFWD);
+</script>

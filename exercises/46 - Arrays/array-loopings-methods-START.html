@@ -176,6 +176,85 @@
 
     const fullNames = [`will`, `katie`, `pepper`].map(capitalize).map(wesleyify);
     console.log(fullNames);
+
+    const orderTotalsWithTax = orderTotals.map((total) => total * 0.07);
+    console.log(orderTotalsWithTax);
+
+    const cleanPeople = people.map((person) => {
+      // Timestamp
+      const birthDay = new Date(person.birthday).getTime();
+      // Now timestamp
+      const now = Date.now();
+      const age = Math.floor((now - birthDay) / 31536000000);
+      // Get their birthday
+      // Figure out how old they are
+      // Return their full name and birthday in an object
+      return {
+        age,
+        name: `${person.names.first} ${person.names.last}`,
+      };
+    });
+    console.table(cleanPeople);
+
+    // Want to find users over 40 years old
+    const over40 = cleanPeople.filter((person) => person.age > 40);
+    console.table(over40);
+
+    function findById(id) {
+      return function isStudent(student) {
+        return student.id === id;
+      };
+    }
+
+    function findByProp(prop, propWeAreLookingFor) {
+      return function isStudent(student) {
+        return student[prop] === propWeAreLookingFor;
+      };
+    }
+
+    const student = students.find(findByProp(`id`, `565a`));
+    const student2 = students.find(findByProp(`first_name`, `Micki`));
+    console.log(student);
+    console.log(student2);
+
+    // Reducing
+    console.clear();
+
+    // Adding the totals from the order totals array
+    // First attempt without knowing reduce()
+    // let total = 0;
+    // orderTotals.forEach((singleTotal) => {
+    //   total += singleTotal;
+    // });
+    // console.log(total);
+
+    // Actual example of using reduce()
+
+    function tallyNumbers(tally, currentTotal) {
+      console.log(`The current tally is ${tally}`);
+      console.log(`The current total is ${currentTotal}`);
+      console.log(`------`);
+      return tally + currentTotal;
+    }
+
+    const allOrders = orderTotals.reduce(tallyNumbers, 0);
+    console.log(allOrders);
+
+    function inventoryReducer(totals, item) {
+      console.log(`looping over ${item.type}`);
+      // increment the type by one
+      totals[item.type] = totals[item.type] + 1 || 1;
+      // return the totals so the next loop can use it
+      return totals;
+    }
+    const inventoryCounts = inventory.reduce(inventoryReducer, {});
+    console.log(inventoryCounts);
+
+    const totalInventoryPrice = inventory.reduce(
+      (acc, item) => acc + item.price,
+      0
+    );
+    console.log(totalInventoryPrice);
   </script>
 </body>
 
