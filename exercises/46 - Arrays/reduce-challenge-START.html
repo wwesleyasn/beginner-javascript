@@ -106,18 +106,18 @@
     const lowercase = (char) => char.toLowerCase();
 
     function instanceCounter(counts, char) {
-      counts[char] ? (counts[char] = counts[char] + 1) : (counts[char] = 1);
+      counts[char] ? (counts[char] = counts[char] + 1) : (counts[char] = 1); // check for character, if there is not an instance, set the value to 1. If there is an instance, add 1
       return counts;
     }
 
     const result = allText
-      .split(``)
-      .filter(isValidChar)
-      .map(lowercase)
-      .reduce(instanceCounter, {});
+      .split(``) // split each char into an item of an array
+      .filter(isValidChar) // filter for valid character
+      .map(lowercase) // makes all the items lowercase
+      .reduce(instanceCounter, {}); // count the instances of each letter & number
 
     function sortByValue(a, b) {
-      return a[1] - b[1];
+      return a[1] - b[1]; // by using the bracketed 1, we are sorting by the second item, which in this instance is the count for each key
     }
 
     const sortedResult = Object.entries(result).sort(sortByValue);
