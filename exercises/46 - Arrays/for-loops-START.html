@@ -26,10 +26,45 @@
     // }
 
     // For of
+    for (const letter of name) {
+      console.log(letter);
+    }
+
+    for (const number of numbers) {
+      console.log(number);
+    }
 
     // For in
+    for (const number in numbers) {
+      console.log(number);
+    }
+
+    const baseHumanStats = {
+      feet: 2,
+      legs: 2,
+      arms: 2,
+      eyes: 2,
+      head: 1,
+    };
+
+    function Human(name) {
+      this.name = name;
+    }
+
+    Human.prototype = baseHumanStats;
+
+    const wes2 = new Human(`Wes`);
 
     // While Loop
+    let cool = true;
+    let i = 1;
+    while (cool === true) {
+      console.log(`You Are Cool`);
+      i++;
+      if (i > 100) {
+        cool = false;
+      }
+    }
   </script>
 </body>
 
