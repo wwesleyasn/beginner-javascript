@@ -1,5 +1,5 @@
 18617
-92/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/pixelated-face.js1641498936488148500 0
+92/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/pixelated-face.js1641583558946945800 0
 101/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/pixelated-face-FINISHED.js1631644823271486500 0
 97/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/pixelated-face-DEMO.js1631644823270489300 0
 92/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/package-lock.json1631644823269491900 0
@@ -8400,7 +8400,7 @@
 152/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/@parcel/transformer-babel/node_modules/core-js/es/array/slice.js499162500000000000 0
 154/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/@parcel/transformer-babel/node_modules/core-js/stable/map/index.js499162500000000000 0
 101/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/fault/license499162500000000000 0
-84/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/face.html1631644823266498500 0
+84/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/face.html1641583195980626000 0
 111/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/ajv/dist/ajv.min.js.map1563113730000000000 0
 163/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/@parcel/transformer-babel/node_modules/core-js/modules/es.string.replace.js499162500000000000 0
 138/home/wwesley/beginner-javascript/exercises/55 - Face Detection Censorship/node_modules/babel-runtime/helpers/_interop-require-wildcard.js1502898503000000000 0
