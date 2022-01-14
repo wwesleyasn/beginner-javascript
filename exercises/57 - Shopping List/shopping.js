@@ -2,7 +2,7 @@ const shoppingForm = document.querySelector(`.shopping`);
 const list = document.querySelector(`.list`);
 
 // we need an array to hold out state. see notes for state
-const items = [];
+let items = [];
 
 // listen for a submit event on the form
 function handleSubmit(e) {
@@ -38,9 +38,15 @@ function displayItems() {
   const html = items
     .map(
       (item) => `<li class="shopping-item">
-      <input type="checkbox">
+      <input 
+        value="${item.id}"
+        type="checkbox"
+        ${item.complete && `checked`}>
       <span class="itemName">${item.name}</span>
-      <button aria-label="Remove ${item.name}">&times;</button>
+      <button 
+        aria-label="Remove ${item.name}"
+        value="${item.id}"
+      >&times;</button>
   </li>`
     )
     .join(``);
@@ -48,7 +54,56 @@ function displayItems() {
   list.innerHTML = html;
 }
 
+// create a function that mirrors what the list says to the browsers localstorage
+// after exercise challenge yourslef to make this a conditional
+function mirrorToLocalStorage() {
+  console.log(`Mirroring Items to LocalStorage`);
+  localStorage.setItem(`items`, JSON.stringify(items));
+}
+
+// on page load, restore from localstorage
+function restoreFromLocalStorage() {
+  console.log(`Restoring From LocalStorage`);
+
+  // pull items from localstorage
+  const lsItems = JSON.parse(localStorage.getItem(`items`));
+  if (lsItems && lsItems.length > 0) {
+    items.push(...lsItems);
+    list.dispatchEvent(new CustomEvent(`itemsUpdated`));
+  } else {
+    console.log(`No Prior List`);
+  }
+}
+
+function deleteItem(id) {
+  console.log(`Item Has Been Deleted`, id);
+  // update our items array without this deleted item
+  items = items.filter((item) => item.id !== id);
+  console.log(items);
+  list.dispatchEvent(new CustomEvent(`itemsUpdated`));
+}
+
+function markAsComplete(id) {
+  console.log(`Marking As Complete`, id);
+  // find the item you want
+  const itemRef = items.find((item) => item.id === id);
+  itemRef.complete = !itemRef.complete;
+  list.dispatchEvent(new CustomEvent(`itemsUpdated`));
+}
+
 shoppingForm.addEventListener(`submit`, handleSubmit);
 
 // we are passing in the CustomEvent, itemsUpdated, that is created above instead of running display items directly within the handleSubmit function
 list.addEventListener(`itemsUpdated`, displayItems);
+list.addEventListener(`itemsUpdated`, mirrorToLocalStorage);
+// Event Delegation: listen for the click on the list <ul> then delegate the click over to the button if that is what was clicked
+list.addEventListener(`click`, (e) => {
+  const id = parseInt(e.target.value);
+  if (e.target.matches(`button`)) {
+    deleteItem(id);
+  }
+  if (e.target.matches(`input[type="checkbox"]`)) {
+    markAsComplete(id);
+  }
+});
+restoreFromLocalStorage();
