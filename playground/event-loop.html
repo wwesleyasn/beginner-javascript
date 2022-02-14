@@ -9,8 +9,53 @@
 </head>
 
 <body>
-  <script>
+  <style>
+    .go {
+      margin: 5rem;
+      background: white;
+      padding: 5rem;
+      width: 25rem;
+      height: 25rem;
+      transition: all 0.2s;
+    }
 
+    .go.circle {
+      border-radius: 50%;
+    }
+  </style>
+  <div class="go">
+    Click Me!
+  </div>
+
+  <script>
+    // console.log(`Starting...`);
+    // setTimeout(() => {
+    //   console.log(`Running...`);
+    // }, 2000);
+    // console.log(`Ending...`);
+
+    const go = document.querySelector(`.go`);
+
+    go.addEventListener(`click`, (e) => {
+      const el = e.currentTarget;
+      el.textContent = `GO!`;
+      setTimeout(() => {
+        el.classList.add(`circle`);
+        setTimeout(() => {
+          el.style.backgroundColor = `red`;
+          setTimeout(() => {
+            el.style.borderRadius = `0px`;
+            setTimeout(() => {
+              el.style.backgroundColor = `purple`;
+              el.style.color = `white`;
+              setTimeout(() => {
+                el.style.opacity = `0`;
+              }, 500);
+            }, 300);
+          }, 250);
+        }, 500);
+      }, 2000);
+    });
   </script>
 </body>
 
