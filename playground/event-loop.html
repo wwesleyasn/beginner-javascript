@@ -22,40 +22,52 @@
     .go.circle {
       border-radius: 50%;
     }
+
+    .go.red {
+      background: red;
+    }
+
+    .go.purple {
+      background: purple;
+      color: white;
+    }
+
+    .go.fadeOut {
+      opacity: 0;
+    }
   </style>
-  <div class="go">
-    Click Me!
-  </div>
-
+  <div class="go">Click Me</div>
   <script>
-    // console.log(`Starting...`);
-    // setTimeout(() => {
-    //   console.log(`Running...`);
-    // }, 2000);
-    // console.log(`Ending...`);
-
-    const go = document.querySelector(`.go`);
-
-    go.addEventListener(`click`, (e) => {
+    function go(e) {
       const el = e.currentTarget;
-      el.textContent = `GO!`;
+      // 1. Change the text to GO when clicked.
+      el.textContent = 'GO';
       setTimeout(() => {
-        el.classList.add(`circle`);
+        // 2. Make it a circle after 2 seconds
+        el.classList.add('circle');
         setTimeout(() => {
-          el.style.backgroundColor = `red`;
+          // 3. Make it red after 0.5s
+          el.classList.add('red');
           setTimeout(() => {
-            el.style.borderRadius = `0px`;
+            // 4. make it square after 0.25s
+            el.classList.remove('circle');
             setTimeout(() => {
-              el.style.backgroundColor = `purple`;
-              el.style.color = `white`;
+              // 5. make it purple
+              el.classList.remove('red');
+              el.classList.add('purple');
               setTimeout(() => {
-                el.style.opacity = `0`;
+                // 6. fade out after 0.5s
+                el.classList.add('invisible');
+                setTimeout(() => {
+                  console.log('You have reacted the 7th layer of callback hell');
+                  el.classList.remove('invisible', 'purple');
+                }, 500);
               }, 500);
-            }, 300);
-          }, 250);
+            }, 500);
+          }, 500);
         }, 500);
-      }, 2000);
-    });
+      }, 500);
+    }
   </script>
 </body>
 
