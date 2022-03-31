@@ -60,7 +60,7 @@ async function convert(amount, from, to) {
   // first check if we have the rates to convert from that currency
   if (!ratesByBase[from]) {
     console.log(
-      `Oh no, we don't have ${from} to convert to ${to}. So lets go get it!!`
+      `Oh no, we don't have ${from} to convert to ${to}. So lets go get it!!!`
     );
     const rates = await fetchRates(from);
     console.log(rates);
